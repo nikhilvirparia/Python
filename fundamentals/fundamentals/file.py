@@ -1,4 +1,3 @@
-
 num1 = 42 #variable declaration
 num2 = 2.3 #log statement
 boolean = True # type check
