@@ -25,7 +25,9 @@ print(sports_directory)
 print(' ')
 
 # Change the value 20 in z to 30
-z = [{'x': 10, 'y': 20}]
+z = [
+    {'x': 10, 'y': 20}
+    ]
 
 z[0]['y'] = 30
 print(z)
