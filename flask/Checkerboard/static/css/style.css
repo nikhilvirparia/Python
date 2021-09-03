@@ -1,13 +1,29 @@
-table tr td {
+* {
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    padding: 10px;
+    margin: 15px 0;
+}
+
+table {
+    border-collapse: collapse;
+
+}
+
+td {
     width: 50px;
     height: 50px;
 }
-
-.color1 {
-   background-color: blue;
-}
-
-.color2 {
-    background-color: red;
- }
-
