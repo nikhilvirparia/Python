@@ -41,6 +41,11 @@ class BankAccount:
             print("balance is negative")
         return self
 
+    def transfer_money(self, user, amount):
+        self.balance -= amount
+        user.bankaccount.balance += amount
+        user.display_user_balance()
+
 
 class User:
     def __init__(self, name, bankaccount, e_mail):
@@ -60,10 +65,18 @@ class User:
     def display_user_balance(self):
         self.bankaccount.display_account_info()
         return self
+    
+    def transfer_money(self, user, amount):
+        self.bankaccount.transfer_money(user, amount)
+        return self
 
 
 Nick = User("Nick", BankAccount(0.01, 100), "nick@gmail.com")
+Andrew = User("Andrew", BankAccount(0.01, 10000000), "andrew@gmail.com")
 
 # print(Nick.bankaccount.balance)
 Nick.make_deposit(100)
 Nick.display_user_balance()
+
+
+Nick.transfer_money(Andrew, 5)
