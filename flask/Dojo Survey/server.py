@@ -15,8 +15,8 @@ def index():
 @app.route('/process', methods=['POST'])
 def form():
     session['name'] = request.form['name']
-    session['location'] = request.form['location'],
-    session['language'] = request.form['language'],
+    session['location'] = request.form['location']
+    session['language'] = request.form['language']
     session['comment'] = request.form['comment']
     return redirect("/result")
 
