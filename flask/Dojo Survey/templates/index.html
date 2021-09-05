@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Dojo Survey</title>
+</head>
+
+<body>
+
+    <h1> Dojo Survey </h1>
+
+    <form action="/process" method="POST">
+
+        <div class="form-group">
+            <label for='name'> Your Name: </label>
+            <input type='text' name='name'>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for='location'> Dojo Location: </label>
+            <select name="location" id="location">
+                <option value="Select a location">~~Select a location~~</option>
+                <option value="Chicago">Chicago</option>
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Online">Online</option>
+                <option value="Bellevue">Bellevue</option>
+                <option value="Boise">Boise</option>
+            </select>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for='language'> Favorite Language: </label>
+            <select name="language" id="language">
+                <option value="Select a language">~~Select a Language~~</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+            </select>
+        </div>
+        <br>
+
+        <div>
+            <label for="comment">Comment:</label>
+        </div>
+
+        <div>
+            <textarea id="comment" name="comment" rows="4" cols="40"> </textarea>
+        </div>
+
+        <br>
+
+        <input type="submit" class="btn btn-primary" name="button" value="Submit">
+
+    </form>
+
+</body>
+
+</html>

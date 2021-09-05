@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Dojo Survey Result</title>
+</head>
+
+<body>
+
+    <h1>Submitted Info</h1>
+
+    <div> Name: {{session['name']}} </div>
+    <br>
+    <div> Dojo Location: {{session['location']}} </div>
+    <br>
+    <div> Favorite Language: {{session['language']}} </div>
+    <br>
+    <div> Comment: {{session['comment']}} </div>
+    <br>
+    <form action="/" method="GET">
+        <div>
+            <input type='submit' class="btn btn-primary" name='button' value='Go Back'>
+        </div>
+    </form>
+
+</body>
+
+</html>
