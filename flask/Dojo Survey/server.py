@@ -16,7 +16,13 @@ def index():
 def form():
     session['name'] = request.form['name']
     session['location'] = request.form['location']
+    if "Select " in session['location']:
+        session['location'] = ""
+
     session['language'] = request.form['language']
+    if "Select " in session['language']:
+        session['language'] = ""
+    
     session['comment'] = request.form['comment']
     return redirect("/result")
 
