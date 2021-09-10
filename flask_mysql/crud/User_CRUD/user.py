@@ -28,3 +28,27 @@ class User:
 
         results = connectToMySQL('users').query_db(query, data)
         return results
+
+    # One_user
+    @classmethod
+    def one_user(cls, data):
+        query = "SELECT * FROM users WHERE ID = %(id)s;"
+        results = connectToMySQL('users').query_db(query, data)
+
+        return cls(results[0])
+
+    # Update Query
+    @classmethod
+    def edit(cls, data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE ID=%(id)s;"
+
+        results = connectToMySQL('users').query_db(query, data)
+        return results
+
+    # Delete query
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM users WHERE ID = %(id)s"
+
+        results = connectToMySQL('users').query_db(query, data)
+        return results

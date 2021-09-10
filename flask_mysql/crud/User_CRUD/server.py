@@ -30,5 +30,45 @@ def add():
 
     return redirect("/users")
 
+@app.route("/users/<int:id>")
+def user(id):
+    data = {
+        "id" : id
+    }
+    user = User.one_user(data)
+    return render_template("show.html", user = user)
+
+@app.route("/users/<int:id>/edit/")
+def edit(id):
+    data = {
+        "id" : id
+    }
+
+    user = User.one_user(data)
+    return render_template("edit.html", edituser = user)
+
+@app.route("/edituser/<int:id>", methods=['GET','POST'])
+def edituser(id):
+    print(id)
+    data = {
+        "id" : id,
+        "first_name": request.form["first_name"],
+        "last_name" : request.form["last_name"],
+        "email" : request.form["email"]
+    }
+    
+    User.edit(data)
+    print(data)
+    return redirect("/users/" + str(id))
+
+@app.route("/users/<int:id>/delete/")
+def delete(id):
+    data = {
+        "id" : id
+    }
+
+    user = User.delete(data)
+    return redirect("/users")
+
 if __name__ == "__main__":
     app.run(debug=True)
