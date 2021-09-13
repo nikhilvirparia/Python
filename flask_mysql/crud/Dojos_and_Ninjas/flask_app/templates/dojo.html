@@ -13,21 +13,33 @@
 
 <body>
 
-    <div class="container">
-        <a class="btn btn-info float-end mt-2" href="/ninja">Add Ninja</a>
+    <div style="display: flex;">
+        <div class="container">
 
-        <h2> New Dojo </h2>
 
-        <form action="/new_dojo" method="post">
-            <label for="name">Name: </label>
-            <input type="text" name="name">
+            <h2> New Dojo </h2>
+
+            <form action="/new_dojo" method="post">
+                <label for="name">Name: </label>
+                <input type="text" name="name">
+                <br>
+                <br>
+                <input class="btn btn-danger" type="submit" value="Add Dojo">
+            </form>
+
+        </div>
+
+        <div class="container">
+            <h2>All Dojos</h2>
+
+            {% for dojo in dojos %}
+            <a href="/dojos/{{dojo.id}}">{{dojo.name}}</a>
             <br>
-            <br>
-            <input class="btn btn-danger" type="submit" value="Add Dojo">
-        </form>
+            {% endfor %}
+            <a class="btn btn-info mt-2" href="/ninja">Add Ninja</a>
+        </div>
 
     </div>
-
 
 
 </body>

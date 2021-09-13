@@ -20,3 +20,5 @@ class Ninja:
         
         results = connectToMySQL('Dojos_and_Ninjas').query_db(query, data)
         return results
+
+    
