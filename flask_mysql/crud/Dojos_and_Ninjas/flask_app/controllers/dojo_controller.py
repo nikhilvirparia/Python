@@ -26,11 +26,12 @@ def new_dojo():
 def ninja():
     dojo = Dojo.get_all_dojos()
 
-    return render_template("ninja.html", dojo=dojo)
+    return render_template("ninja.html", dojos=dojo)
 
 
 @app.route('/create_ninja', methods=['POST'])
 def create_ninja():
+
     data = {
         "first_name": request.form['first_name'],
         "last_name": request.form['last_name'],

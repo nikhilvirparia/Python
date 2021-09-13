@@ -20,8 +20,8 @@
 
             <label for="dojo"> Dojo: </label>
             <select name="dojo_id">
-                {% for dojo in dojo %}
-                <option value="{{ dojo_ID }}">{{dojo.name}}</option>
+                {% for dojo in dojos %}
+                <option value= "{{dojo.id}}">{{dojo.name}}</option>
                 {% endfor %}
             </select>
 
