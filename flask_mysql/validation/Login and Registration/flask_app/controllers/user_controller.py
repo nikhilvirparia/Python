@@ -1,15 +1,25 @@
+from werkzeug.utils import validate_arguments
+from flask_app.models.user import User
 from flask_app import app
 from flask import render_template, redirect, session, request, flash
 
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-from flask_app.models.user import User
+
+# ============================
+# Render Login/Reg Route
+# ============================
+
 
 @app.route("/")
 def index():
 
     return render_template("index.html")
+
+# ============================
+# Register Route
+# ============================
 
 
 @app.route("/register", methods=['POST'])
@@ -33,4 +43,30 @@ def register():
 
     # store user id into session
     session['user_id'] = user_id
+    return redirect("/dashboard")
+
+# ============================
+# Login Route
+# ============================
+
+@app.route("/login", methods=["POST"])
+def login():
+
+    data = {
+        "email": request.form["email"]
+    }
+    
+    user_in_db = User.get_by_email(data)
+
+    validation_data = {
+        "user" : user_in_db,
+        "password" : request.form['password']
+    }
+    
+    if not User.validate_login(validation_data):
+        return redirect("/")
+
+    # if the passwords matched, we set the user_id into session
+    session['user_id'] = user_in_db.id
+    # never render on a post!!!
     return redirect("/dashboard")
