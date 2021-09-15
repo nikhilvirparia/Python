@@ -70,3 +70,29 @@ def login():
     session['user_id'] = user_in_db.id
     # never render on a post!!!
     return redirect("/dashboard")
+
+# ============================
+# Dashboard Route
+# ============================
+
+@app.route("/dashboard")
+def dashboard():
+    user_id = session['user_id']
+
+    data = {
+        "user_id" : session['user_id']
+    }
+
+    user = User.get_user_info(data)
+    
+    return render_template("dashboard.html", user = user)
+
+
+# ============================
+# Logout Route
+# ============================
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
