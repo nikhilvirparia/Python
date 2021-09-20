@@ -12,8 +12,8 @@
 
 <body>
 
-    <a class="btn btn-info mt-2 float-end" href="/dashboard">Dashboard</a>
     <a class="btn btn-danger mt-2 float-end" href="/logout">Logout</a>
+    <a class="btn btn-info mt-2 float-end" href="/dashboard">Dashboard</a>
 
     <div class="container">
 
@@ -25,11 +25,11 @@
             {% endif %}
         {% endwith %}
 
-        <h1> Add User! </h1>
+        <h1> Add New Recipe! </h1>
 
 
         <form action="/recipes/create" method="POST">
-
+            <input type="hidden" value="{{ user_id }}" name="user_id">
             <label>Name:</label>
             <input type="text" name="name">
 

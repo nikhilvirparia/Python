@@ -34,8 +34,8 @@
                     <td><a href="/recipes/{{ recipe.id }}">view instructions</a>
 
                         {% if recipe.user_id == user.id %}
-                            <a href="recipes/edit/{{ recipe.id }}"> Edit </a>
-                            <a href="recipes/delete/{{ recipe.id }}"> Delete </a>
+                            <a href="/recipes/edit/{{ recipe.id }}"> Edit </a>
+                            <a href="/recipes/delete/{{ recipe.id }}"> Delete </a>
                         {% endif %}
                     </td>
 
